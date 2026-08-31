@@ -1,0 +1,1 @@
+[{"name":"Programming logic","prerequisites":["Digital Literacy"]},{"name":"Network protocols","prerequisites":["Digital Literacy"]},{"name":"Cybersecurity habits","prerequisites":["Network protocols"]}]
