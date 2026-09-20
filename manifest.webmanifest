@@ -1,1 +1,14 @@
-{"name":"LEARNER 16 — Free Learning Universe","short_name":"LEARNER 16","start_url":"./","display":"standalone","background_color":"#f6f7fb","theme_color":"#4f46e5","icons":[]}
+{
+  "name":"LEARNER 16 — Free Learning Universe",
+  "short_name":"LEARNER 16",
+  "description":"A free learning universe for courses, practice, notes, quizzes, projects and skill development.",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f6f7fb",
+  "theme_color":"#4f46e5",
+  "icons":[
+    {"src":"assets/icon-192.svg","sizes":"192x192","type":"image/svg+xml","purpose":"any maskable"},
+    {"src":"assets/icon-512.svg","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
