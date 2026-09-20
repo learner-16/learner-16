@@ -1,4 +1,4 @@
-const CACHE='learner16-v1';
+const CACHE='learner16-v2';
 const APP_SHELL=[
   './','./index.html','./manifest.webmanifest',
   './css/themes.css','./css/main.css','./css/responsive.css',
@@ -15,7 +15,7 @@ self.addEventListener('fetch',event=>{
   if(url.origin!==self.location.origin)return;
   event.respondWith(caches.match(event.request).then(cached=>{
     const network=fetch(event.request).then(response=>{
-      if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}
+      if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{})}
       return response;
     }).catch(()=>cached||new Response('Offline',{status:503,statusText:'Offline'}));
     return cached||network;

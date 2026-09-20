@@ -14,19 +14,37 @@ LEARNER 16 is a lightweight, responsive learning application for structured lear
 - Light/dark theme
 - Installable PWA shell with offline caching
 - Local data reset from Settings
-- Automated GitHub Actions checks for JavaScript syntax, JSON and required files
+- Automated GitHub Actions validation and GitHub Pages deployment workflow
 
-## Run locally
+## Start on a computer
 
-Serve the repository root because the app loads JSON and the service worker requires an HTTP(S) origin:
+Download the repository as ZIP from GitHub, extract it, open a terminal in the extracted folder, and run:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`.
+Then open:
 
-Do not open `index.html` directly with `file://`; browser module imports, JSON fetches and service-worker registration are intentionally designed for HTTP(S).
+```
+http://localhost:8000
+```
+
+Do not open `index.html` directly with `file://`; the app uses ES modules, JSON fetches, and a service worker that require HTTP(S).
+
+## Publish and install from GitHub Pages
+
+1. Open the repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, choose **GitHub Actions** as the source.
+4. After the Pages workflow completes, open the Pages URL shown by GitHub.
+5. In a supported browser, use the browser menu and choose **Install LEARNER 16** or **Add to Home screen**.
+
+The expected project Pages address is:
+
+`https://learner-16.github.io/learner-16/`
+
+GitHub may take a short period after the first deployment to publish the site.
 
 ## Security
 
@@ -34,15 +52,11 @@ No API keys or secrets belong in this frontend. The AI Mentor is intentionally l
 
 ## Offline/PWA
 
-After the first successful load from an HTTP(S) origin, the service worker caches the app shell and learning data. User-generated notes and progress remain in browser local storage.
+After the first successful load from an HTTP(S) origin, the service worker caches the app shell and learning data. User-generated notes and progress remain in browser local storage. The service-worker cache is versioned so later releases can replace older cached files.
 
 ## Validation
 
-GitHub Actions runs on pushes and pull requests to `main` and checks:
-
-1. JavaScript syntax with Node.js.
-2. JSON and web-manifest parsing.
-3. Required application files.
+GitHub Actions checks JavaScript syntax, JSON/manifest parsing, and required application files on pushes and pull requests to `main`.
 
 ## Project direction
 
